@@ -2,11 +2,8 @@ import React, { useEffect, useState} from 'react'
 import NewsItems from './NewsItems'
 import Spinner from './Spinner';
 
-
 export default function Container(props) {
-//   const [category,setcategory] = useState("health")
-//   setcategory(props.category)
-//   alert(props.category)
+  const apikey=""
   const [response, setresponse] = useState([]);
   const [page, setPage] = useState(1);
   const [PageSize, setPageSize] = useState(20);
@@ -15,7 +12,7 @@ export default function Container(props) {
 
     const updatNews =async()=>{
 
-      const url =`https://newsapi.org/v2/top-headlines?country=us&category=${props.category}&apiKey=38b994fddf5142f5bc795d2d4d0e0ebb&page=${page}&pagesize=${PageSize}`
+      const url =`https://newsapi.org/v2/top-headlines?country=us&category=${props.category}&apiKey=${apikey}&page=${page}&pagesize=${PageSize}`
       setLoading(true)
       const data=await fetch(url)
       let parsedData=await data.json()
